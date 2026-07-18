@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ profile.name }} — Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  
+  <header class="mobile-bar">
+    <span class="mobile-bar__logo">{{ profile.name.split(' ')[0] }}</span>
+    <button class="mobile-bar__toggle" id="navToggle" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- LEFT VERTICAL NAVIGATION -->
+  <nav class="sidenav" id="sidenav">
+    <div class="sidenav__brand">
+      <span class="sidenav__mark">01</span>
+      <span class="sidenav__name">{{ profile.name }}</span>
+      <span class="sidenav__role">{{ profile.role }}</span>
+    </div>
+
+    <ul class="sidenav__links">
+      <li><a href="#home" class="sidenav__link is-active" data-section="home">Home</a></li>
+      <li><a href="#about" class="sidenav__link" data-section="about">About&nbsp;Me</a></li>
+      <li><a href="#tech" class="sidenav__link" data-section="tech">Tech&nbsp;Stacks</a></li>
+      <li><a href="#projects" class="sidenav__link" data-section="projects">Projects</a></li>
+      <li><a href="#contact" class="sidenav__link" data-section="contact">Contact</a></li>
+    </ul>
+
+    <div class="sidenav__footer">
+      <a href="{{ profile.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a href="{{ profile.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </nav>
+
+  <div class="sidenav__scrim" id="navScrim"></div>
+
+  <main class="content">
+
+    
+    <section id="home" class="section hero">
+      <div class="hero__top">
+        <p class="hero__eyebrow">Portfolio&nbsp;/&nbsp;{{ profile.location }}</p>
+        <p class="hero__index">00 — 04</p>
+      </div>
+
+      <div class="hero__main">
+        <div class="hero__left">
+          <h1 class="hero__title">
+            {{ profile.name }}<br>{{ profile.role }}.
+          </h1>
+          <p class="hero__text">{{ profile.tagline }}</p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--solid">View Projects</a>
+            <a href="#contact" class="btn btn--outline">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="hero__right">
+         
+         <img class="hero__image"    src="{{ url_for('static', filename='images/photo.jpeg') }}" alt="Description of photo">
+          </div>
+     
+      </div>
+
+      <div class="hero__bottom">
+        <div class="hero__stat">
+          <span class="hero__stat-num">{{ tech_stacks|length }}</span>
+          <span class="hero__stat-label">Skill areas</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-num">{{ projects|length }}</span>
+          <span class="hero__stat-label">Projects built</span>
+        </div>
+        <div class="hero__scroll">Scroll to explore ↓</div>
+      </div>
+    </section>
+
+
+    <section id="about" class="section">
+      <div class="section__head">
+        <span class="section__num">01</span>
+        <h2 class="section__title">About Me</h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__summary">
+          <p>{{ about.summary }}</p>
+        </div>
+
+        <div class="about__education">
+          <h3 class="subheading">Overview / Education Details</h3>
+          <ul class="timeline">
+            {% for edu in about.education %}
+            <li class="timeline__item">
+              <span class="timeline__period">{{ edu.period }}</span>
+              <span class="timeline__title">{{ edu.title }}</span>
+              <span class="timeline__place">{{ edu.place }}</span>
+              <p class="timeline__detail">{{ edu.detail }}</p>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section">
+  <div class="section__head">
+    <span class="section__num">02</span>
+    <h2 class="section__title">Tech Stacks</h2>
+  </div>
+
+  <div class="card-grid">
+    {% for stack in tech_stacks %}
+    <div class="card">
+      <h3 class="card__title">{{ stack.category }}</h3>
+      <ul class="card__list">
+        {% for item in stack.skills %}
+        <li class="card__item">
+          <i class="{{ item.icon }} skill-icon"></i>
+          <span class="skill-name">{{ item.name }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+  
+
+    <section id="projects" class="section">
+      <div class="section__head">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Projects</h2>
+      </div>
+
+      <div class="card-grid card-grid--projects">
+        {% for project in projects %}
+        <article class="card card--project">
+          <span class="card--project__num">{{ "%02d"|format(project.id) }}</span>
+          <h3 class="card__title">{{ project.title }}</h3>
+          <p class="card__text">{{ project.description }}</p> <br>
+          <p class="card__stack">{{ project.stack }}</p>
+          <a href="{{ project.link }}" class="card__link">View project →</a>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+
+    <section id="contact" class="section">
+      <div class="section__head">
+        <span class="section__num">04</span>
+        <h2 class="section__title">Contact</h2>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info">
+          <p class="contact__text">
+            I'm currently open to new opportunities and collaborations.
+            The fastest way to reach me is by email, or use the form.
+          </p>
+          <ul class="contact__list">
+            <li><span>Email</span><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>
+            <li><span>GitHub</span><a href="{{ profile.github }}" target="_blank" rel="noopener">{{ profile.github }}</a></li>
+            <li><span>LinkedIn</span><a href="{{ profile.linkedin }}" target="_blank" rel="noopener">{{ profile.linkedin }}</a></li>
+          </ul>
+        </div>
+
+        <form class="contact__form" action="{{ url_for('contact') }}" method="POST">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, msg in messages %}
+                <p class="form__flash form__flash--{{ category }}">{{ msg }}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+          <label class="form__label" for="name">Name</label>
+          <input class="form__input" type="text" id="name" name="name" required>
+
+          <label class="form__label" for="email">Email</label>
+          <input class="form__input" type="email" id="email" name="email" required>
+
+          <label class="form__label" for="message">Message</label>
+          <textarea class="form__input form__textarea" id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="btn btn--solid btn--full">Send Message</button>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> {{ profile.name }}. Built with Flask.</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
