@@ -305,6 +305,7 @@ button{font:inherit;cursor:pointer;border:none;background:none;}
   max-width:460px;
   font-size:18px;
   color:#333;
+  text-align:justify;
 }
 
 .subheading{
