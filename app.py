@@ -19,10 +19,10 @@ PROFILE = {
 
 ABOUT = {
     "summary": (
-        "I'm a developer who enjoys turning ideas into structured, working "
-        "software. I focus on writing readable code, understanding the "
-        "problem before the solution, and building products that are "
-        "simple to use and easy to maintain."
+      " I'm a Computer Science student who enjoys turning ideas into practical software. I like building projects that solve real-world problems while continuously exploring new technologies."
+"My main interests are Python,AI, and full-stack development. I've worked on projects ranging from web applications to AI-powered systems, including a Retrieval-Augmented Generation (RAG) knowledge hub, a Book Management System, personal portfolio websites, and productivity-focused applications. I enjoy taking a project from idea to deployment, learning something new at every step."
+"I believe the best way to improve as a developer is by building. Whether it's designing clean user interfaces, creating backend logic, integrating APIs, or deploying applications, I enjoy the complete development process. I'm always looking for opportunities to expand my skills and contribute to meaningful projects."
+"Currently, I'm focused on improving my software engineering skills, exploring artificial intelligence, and building applications that make everyday tasks simpler and more efficient."
     ),
     "education": [
         {
