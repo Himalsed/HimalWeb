@@ -37,6 +37,13 @@ ABOUT = {
             "place": "New Capital Secondary School",
             "detail": "Focused on physics, mathematics, and computer science.",
         },
+        {
+             "period": "2020 — 2021",
+            "title": "Secondary Education Examination",
+            "place": "Vidhya Memorial  School",
+            "detail": "Focused on Optional Maths , mathematics, Science ,and computer science.",
+        },
+        },
     ],
 }
 TECH_STACKS = [
