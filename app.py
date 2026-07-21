@@ -130,6 +130,9 @@ PROJECTS = [
     
 ]
 
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory("static", "sitemap.xml")
 
 @app.route("/", methods=["GET"])
 def home():
