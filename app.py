@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_compress import Compress
+
+Compress(app)
 import os
 app = Flask(__name__)
 app.secret_key = "portfolio-dev-key"
