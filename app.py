@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_compress import Compress
+from flask import send_from_directory
+
+)
 
 Compress(app)
 import os
@@ -129,6 +132,9 @@ PROJECTS = [
     }
     
 ]
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory("static", "robots.txt"
 
 @app.route("/sitemap.xml")
 def sitemap():
