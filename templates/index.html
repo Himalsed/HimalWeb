@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Himal Sedhai | Software Developer & AI Enthusiast</title>
+    <title>Himal Sedhai | Software Developer & AI Enthusiatic</title>
 
     <meta name="description"
         content="Official portfolio of Himal Sedhai. Software Developer specializing in Python, Flask, AI, Retrieval-Augmented Generation (RAG), Full Stack Development, and Machine Learning.">
@@ -25,7 +24,7 @@
     <!-- Favicon -->
     <link rel="icon"
           type="image/png"
-          href="{{ url_for('static', filename='images/favicon.png') }}">
+          href="{{ url_for('static', filename='images/favicon.svg') }}">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -64,16 +63,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
+          <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
 
-</head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ profile.name }} — Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -132,7 +124,7 @@
 
         <div class="hero__right">
          
-         <img class="hero__image"    src="{{ url_for('static', filename='photo.jpeg') }}" alt="Description of photo">
+         <img class="hero__image"    src="{{ url_for('static', filename='images/photo.jpeg') }}" alt="Description of photo">
           </div>
      
       </div>
@@ -269,6 +261,7 @@
     </section>
 
   </main>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
